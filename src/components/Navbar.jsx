@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { motion } from "motion/react"; // Corregido el import incorrecto de "motion/react"
+import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,28 +24,20 @@ const Navbar = () => {
         <span className="font-bold text-2xl text-pink-900">Simplescake</span>
       </div>
       {/* Menú para pantallas grandes (md:flex) */}
-      <ul className="hidden lg:flex items-center gap-2 my-2">
-        <li>
-          <a href="" className="p-3 rounded-lg transition-all hover:text-pink-800 hover:bg-pink-800/3">
+      <nav className="hidden lg:flex items-center gap-2 my-2 bg-white/50 rounded-xl px-2 py-1">
+          <Link to="/" className="px-3 py-1 rounded-lg transition-all hover:text-pink-800 hover:bg-pink-800/3">
             Inicio
-          </a>
-        </li>
-        <li>
-          <a href="" className="p-3 rounded-lg transition-all hover:text-pink-800 hover:bg-pink-800/3">
+          </Link>
+          <Link to="/products" className="px-3 py-1 rounded-lg transition-all hover:text-pink-800 hover:bg-pink-800/3">
             Productos
-          </a>
-        </li>
-        <li>
-          <a href="" className="p-3 rounded-lg transition-all hover:text-pink-800 hover:bg-pink-800/3">
+          </Link>
+          <Link to="/about" className="px-3 py-1 rounded-lg transition-all hover:text-pink-800 hover:bg-pink-800/3">
             Sobre mi
-          </a>
-        </li>
-        <li>
-          <a href="" className="p-3 rounded-lg transition-all hover:text-pink-800 hover:bg-pink-800/3">
+          </Link>
+          <Link to="/contact" className="px-3 py-1 rounded-lg transition-all hover:text-pink-800 hover:bg-pink-800/3">
             Contacto
-          </a>
-        </li>
-      </ul>
+          </Link>
+      </nav>
 
       {/* Botón de Hamburguesa para pantallas pequeñas */}
       <motion.div

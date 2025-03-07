@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
+import Button from "./Button";
+import Card from "./Card";
 
 // Datos de ejemplo para los productos destacados
 const featuredProducts = [
@@ -47,27 +49,20 @@ export default function FeaturedProducts() {
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {featuredProducts.map((product) => (
-          <div
-            key={product.id}
-            className="shadow-lg flex flex-col justify-between p-4 border border-black/30 rounded-2xl mt-10"
-          >
-            <img src={product.image} alt="" className="h-50" />
-            <span className="text-xl font-semibold">{product.name}</span>
-            <span className="text-sm text-gray-500 py-3">
-              {product.description}
-            </span>
-            <span className="font-semibold text-2xl">${product.price}</span>
-
-            <div className="mt-5 rounded-2xl border border-pink-800/30 cursor-pointer text-center font-semibold py-2 bg-pink-300 text-pink-900 hover:bg-pink-400 hover:scale-105 active:scale-95 transition">
-              <span>Añadir al carrito</span>
-            </div>
-          </div>
+          <Card key={product.id} className="mt-10">
+            <Card.Header>
+              <Card.Image src={product.image} alt={product.name} />
+            </Card.Header>
+            <Card.Body>
+              <span className="text-2xl font-semibold">{product.name}</span>
+              <div className="text-sm text-gray-500 py-3">
+                {product.description}
+              </div>
+              <div className="font-semibold text-2xl">${product.price}</div>
+            </Card.Body>
+          
+          </Card>
         ))}
-      </div>
-      <div className="flex justify-center mt-8">
-        <div className="mt-5 rounded-2xl hover:border border-pink-800/30 cursor-pointer text-center font-semibold py-2 px-5 text-pink-900 hover:bg-pink-300 hover:scale-105 active:scale-95 transition">
-          <span>Ver todos los productos</span>
-        </div>
       </div>
     </>
   );

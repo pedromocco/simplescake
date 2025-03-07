@@ -1,11 +1,12 @@
 import React from "react";
 import FeaturedProducts from "../components/FeatureProducs";
 import ClientsComents from "../components/ClientsComents";
+import Button from "../components/Button";
 
 const Home = () => {
   return (
     <>
-      <section className="w-full py-12 md:py-24 lg:py-34 bg-[url('/hero-bg.svg')] bg-cover mt-14 z-50">
+      <section className="w-full py-12 md:py-24 lg:py-34 bg-[url('/hero-bg.svg')] bg-cover mt-18 z-50">
         <div className="px-4 md:px-6">
           <div className="flex flex-col items-center space-y-4 text-center">
             <div className="space-y-2">
@@ -19,9 +20,7 @@ const Home = () => {
             </div>
             <div className="space-x-4">
               <div className="flex justify-center mt-8">
-                <div className="mt-5 rounded-2xl border border-pink-800/30 cursor-pointer text-center font-semibold py-2 px-5 text-pink-900 bg-pink-300 hover:bg-pink-400 hover:scale-105 active:scale-95 transition">
-                  <span>Ver productos</span>
-                </div>
+                <Button>Ver productos</Button>
               </div>
             </div>
           </div>
