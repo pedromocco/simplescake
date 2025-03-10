@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Button from "../../components/Button";
-import Card from "../../components/Card";
 
 export const allProducts = [
   {
@@ -8,7 +7,7 @@ export const allProducts = [
     name: "Tarta de Chocolate Supreme",
     description: "Tarta de chocolate belga 70% cacao con frutos rojos frescos",
     price: 28.99,
-    image: "/tarta-chocolate.jpg",
+    image:"product.jpg",
     category: "Tartas",
     badges: ["Más Vendido", "Recomendado"],
     details: {
@@ -26,7 +25,7 @@ export const allProducts = [
     description:
       "Pack de 4 cupcakes con frosting de vainilla y decoración artesanal",
     price: 12.5,
-    image: "/cupcakes-vainilla.jpg",
+    image:"product-2.jpg",
     category: "Cupcakes",
     badges: [],
     details: {
@@ -43,7 +42,7 @@ export const allProducts = [
     name: "Brownies de Nuez Gourmet",
     description: "Brownies caseros con trozos de nuez y chocolate intenso",
     price: 15.99,
-    image: "/brownies-nuez.jpg",
+    image:"product-3.jpg",
     category: "Brownies",
     badges: ["Nuevo"],
     details: {
@@ -61,7 +60,7 @@ export const allProducts = [
     name: "Galletas de Mantequilla Artesanales",
     description: "Pack de 8 galletas artesanales de mantequilla",
     price: 9.99,
-    image: "/galletas-mantequilla.jpg",
+    image:"product.jpg",
     category: "Galletas",
     badges: ["Sin Gluten"],
     details: {
@@ -80,7 +79,7 @@ export const allProducts = [
     description:
       "Tarta ligera con crema pastelera y fresas frescas de temporada",
     price: 26.99,
-    image: "/tarta-fresas.jpg",
+    image:"product-2.jpg",
     category: "Tartas",
     badges: ["Temporada"],
     details: {
@@ -97,7 +96,7 @@ export const allProducts = [
     name: "Macarons Surtidos Franceses",
     description: "Pack de 6 macarons con diferentes sabores y colores",
     price: 14.5,
-    image: "/macarons-surtidos.jpg",
+    image:"product-3.jpg",
     category: "Macarons",
     badges: ["Importado"],
     details: {
@@ -114,7 +113,7 @@ export const allProducts = [
     name: "Cheesecake de Limón Mediterráneo",
     description: "Cheesecake cremoso con un toque refrescante de limón",
     price: 24.99,
-    image: "/cheesecake-limon.jpg",
+    image:"product.jpg",
     category: "Tartas",
     badges: ["Sin Azúcar"],
     details: {
@@ -131,7 +130,7 @@ export const allProducts = [
     name: "Cookies con Chips de Chocolate",
     description: "Pack de 6 cookies con abundantes chips de chocolate",
     price: 11.99,
-    image: "/cookies-chocolate.jpg",
+    image:"product-2.jpg",
     category: "Galletas",
     badges: ["Vegano"],
     details: {
@@ -149,7 +148,7 @@ export const allProducts = [
     description:
       "Auténtico tiramisú italiano con café y cacao de primera calidad",
     price: 22.5,
-    image: "/tiramisu.jpg",
+    image:"product-3.jpg",
     category: "Postres",
     badges: ["Edición Limitada"],
     details: {
@@ -166,7 +165,7 @@ export const allProducts = [
     name: "Donas Glaseadas Artesanales",
     description: "Pack de 4 donas con diferentes glaseados y toppings",
     price: 10.99,
-    image: "/donas-glaseadas.jpg",
+    image:"product.jpg",
     category: "Donas",
     badges: ["Orgánico"],
     details: {
@@ -185,47 +184,34 @@ const Products = () => {
     ...new Set(allProducts.map((product) => product.category)),
   ];
   return (
-    <div className="mt-20 px-4 py-12 mx-auto">
+    <div className="mt-8 lg:mt-20 px-4 py-12 mx-auto">
       <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
-        <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+        <h1 className="text-4xl font-bold tracking-tighter sm:text-4xl md:text-6xl">
           Nuestros Dulces
         </h1>
-        <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+        <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
           Descubre nuestra selección de postres artesanales elaborados con
           ingredientes de primera calidad
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-2 justify-center mb-8">
-        <Button variant="outline" className="rounded-full bg-transparent text-gray-400 border border-black/20 hover:bg-gray-100 active:bg-gray-300">
-          Todos
-        </Button>
-        {categories.map((category) => (
-          <Button key={category} variant="outline" className="rounded-full bg-transparent text-gray-400 border border-black/20 hover:bg-gray-100 active:bg-gray-300">
-            {category}
-          </Button>
-        ))}
-      </div>
-
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {allProducts.map((product) => (
-          <Card key={product.id} className="mt-10">
-            <Card.Header>
-              <Card.Image src={product.image} alt={product.name} />
-            </Card.Header>
-            <Card.Body>
-              <span className="text-2xl font-semibold">{product.name}</span>
+          <div key={product.id} className="flex md:flex-col justify-between border border-black/30 p-4 rounded-2xl items-center ">
+            <div className="object-fill w-1/2 md:w-full">
+              <img src={product.image} alt={product.name} className="rounded-xl" />
+            </div>
+            <div className="mx-3 md:mt-4">
+              <span className="md:text-2xl font-bold">{product.name}</span>
               <div className="text-sm text-gray-500 py-3">
                 {product.description}
               </div>
               <div className="font-semibold text-2xl">${product.price}</div>
-            </Card.Body>
-            <Card.Footer className={"gap-x-1"}>
               <Button>
                 <Link to={`/products/${product.id}`}>Ver producto</Link>
               </Button>
-            </Card.Footer>
-          </Card>
+            </div>
+          </div>
         ))}
       </div>
     </div>

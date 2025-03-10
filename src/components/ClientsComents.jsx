@@ -1,4 +1,5 @@
 import React from "react";
+import { User } from "../lib/icons";
 
 const ClientsComents = () => {
   const clientsComments = [
@@ -6,7 +7,8 @@ const ClientsComents = () => {
       id: 1,
       img: "",
       name: "Jackie Chan",
-      comment: "Chin chun chan chin chon chun chan chin chon chun chan chin chon",
+      comment:
+        "Chin chun chan chin chon chun chan chin chon chun chan chin chon",
     },
     {
       id: 2,
@@ -34,14 +36,21 @@ const ClientsComents = () => {
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
         {clientsComments.map((client) => (
-          <div key={client.id} className="flex flex-col justify-around bg-gray-200 border border-black/20 rounded-2xl py-3">
+          <div
+            key={client.id}
+            className="flex flex-col justify-around bg-gray-200 border border-black/20 rounded-2xl py-3"
+          >
             <div className="flex justify-center">
-              <span className="bg-red-500 p-5 m-5 h-20 w-20 rounded-full">img</span>
+              <div className="bg-pink-300 p-3 rounded-full">
+                <User className={"stroke-pink-700 size-8"} />
+              </div>
             </div>
             <div className="flex flex-col justify-start">
               <span className="font-semibold">{client.name}</span>
               <span>⭐⭐⭐⭐⭐</span>
-              <span className="px-10 mt-2 text-gray-600">"{client.comment}"</span>
+              <span className="px-10 mt-2 text-gray-600">
+                "{client.comment}"
+              </span>
             </div>
           </div>
         ))}

@@ -1,11 +1,12 @@
 // components/Card.jsx
 import { cn } from "../lib/utils";
+import { twMerge } from "tailwind-merge";
 
 const Card = ({ children, className, ...props }) => {
   return (
     <div
-      className={cn(
-        "flex flex-col border border-black/20 p-7 rounded-4xl shadow-lg justify-between",
+      className={twMerge(
+        "flex flex-col border border-black/20 p-4 rounded-4xl",
         className
       )}
       {...props}
@@ -17,14 +18,14 @@ const Card = ({ children, className, ...props }) => {
 
 // Subcomponente Header
 Card.Header = ({ children, className }) => (
-  <div className={cn("", className)}>
+  <div className={twMerge("", className)}>
     {children}
   </div>
 );
 
 // Subcomponente Body
 Card.Body = ({ children, className }) => (
-  <div className={cn("my-4", className)}>{children}</div>
+  <div className={twMerge("my-4", className)}>{children}</div>
 );
 
 // Subcomponente Image
@@ -32,13 +33,13 @@ Card.Image = ({ src, alt, className }) => (
   <img
     src={src}
     alt={alt}
-    className={cn("h-50 mb-4 rounded-lg", className)}
+    className={twMerge("mb-4 rounded-lg", className)}
   />
 );
 
 // Subcomponente Footer
 Card.Footer = ({ children, className }) => (
-  <div className={cn("mt-auto", className)}>{children}</div>
+  <div className={twMerge("mt-auto", className)}>{children}</div>
 );
 
 export default Card;

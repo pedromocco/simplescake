@@ -3,54 +3,81 @@ import { useParams } from "react-router-dom";
 import { allProducts } from "./Products";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
+import { WhatsappIcon } from "../../lib/icons";
 
 const Product = () => {
   const { id } = useParams();
-  const product = allProducts.find(p => p.id === parseInt(id));
+  const product = allProducts.find((p) => p.id === parseInt(id));
+
+  // Número de WhatsApp (cámbialo por el tuyo)
+  const businessPhone = "+584249167895";
+
+  // Mensaje personalizado con el nombre del producto
+  const whatsappMessage = encodeURIComponent(
+    `¡Hola! Quiero encargar "${
+      product?.name || "la delicia"
+    }" que vi en su página.`
+  );
+
+  // URL de WhatsApp
+  const whatsappUrl = `https://wa.me/${businessPhone}?text=${whatsappMessage}`;
 
   if (!product) return <div>Producto no encontrado</div>;
 
+  console.log(product);
+
   return (
-    <div className="mt-30 py-5 px-15">
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_400px] gap-4">
-        
-        {/* Imagen */}
-        <img 
-          src={product.image} 
-          alt={product.name} 
-          className="w-full h-96 object-cover rounded-lg"
+    <motion.div className="flex flex-col md:flex-row justify-center items-center mt-13 md:mt-27">
+      <div className="mb-10">
+        <img
+          src={"/" + product.image}
+          alt={product.name}
+          className="object-cover rounded-lg max-w-full md:mx-10 md:size-120"
         />
-        
-        {/* Detalles */}
-        <div className="space-y-4">
-        <Link to="/products">Volver</Link>
-          <h1 className="text-3xl font-bold">{product.name}</h1>
-          <p className="text-gray-600">{product.description}</p>
-          <div className="text-2xl font-semibold">${product.price}</div>
-          
-          {/* Información adicional */}
-          <div className="space-y-2">
-            <h3 className="text-lg font-medium">Detalles:</h3>
-            <ul className="list-disc list-inside">
-              <li>Ingredientes: {product.details.ingredients}</li>
-              <li>Alérgenos: {product.details.allergens.join(", ")}</li>
-              <li>Peso: {product.details.weight}</li>
+      </div>
+      <div>
+        <div className="bg-pink-100 rounded-2xl">
+          <div className="w-full p-7">
+            <h1 className="text-3xl font-bold text-pink-500">{product.name}</h1>
+            <p className="text-gray-600 my-4">{product.description}</p>
+            <div className="text-2xl font-semibold">${product.price}</div>
+          </div>
+
+          <div className="p-7">
+            <h3 className="text-xl font-bold">Detalles:</h3>
+            <ul className="mt-2 space-y-2">
+              <li>
+                <span className="font-bold text-pink-500">Ingredientes</span>:{" "}
+                {product.details.ingredients}
+              </li>
+              <li>
+                <span className="font-bold text-pink-500">Alérgenos</span>:{" "}
+                {product.details.allergens.join(", ")}
+              </li>
+              <li>
+                <span className="font-bold text-pink-500">Peso</span>:{" "}
+                {product.details.weight}
+              </li>
             </ul>
           </div>
-          
-          {/* Botones de acción */}
-          <div className="flex space-x-4">
-            <Button className="px-4 py-2 rounded-lg">
-              Añadir al carrito
+        </div>
+
+        <div className="flex gap-x-5 p-5">
+          <Button className="px-4 py-2 rounded-lg hover:bg-green-400">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex gap-x-2">
+              <WhatsappIcon />
+              Encargar ahora
+            </a>
+          </Button>
+          <Link to="/products">
+            <Button className="bg-gray-700 hover:bg-gray-700/80 active:bg-gray-900">
+              Volver
             </Button>
-            <Button className="bg-blue-500 hover:bg-blue-500/80 active:bg-blue-600 px-4 py-2 rounded-lg">
-              Contactar ahora
-            </Button>
-          </div>
+          </Link>
         </div>
       </div>
-      
-    </div>
+    </motion.div>
   );
 };
 

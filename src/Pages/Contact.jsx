@@ -4,15 +4,16 @@ import Button from "../components/Button";
 import Input from "../components/Input";
 import Label from "../components/Label";
 import Textarea from "../components/Textarea";
+import { MapPin, Phone, Mail, Clock } from "../lib/icons";
 
 const Contact = () => {
   return (
     <div className="px-4 py-15 mx-auto mt-10">
       <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-        <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+        <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-6xl">
           Contacto
         </h1>
-        <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+        <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
           Estamos aquí para ayudarte. Ponte en contacto con nosotros para
           cualquier consulta.
         </p>
@@ -22,7 +23,9 @@ const Contact = () => {
         <Card>
           <Card.Header className={""}>
             <span className="text-2xl font-semibold">Envíanos un mensaje</span>
-            <p className="my-5 text-gray-500">Completa el formulario y te responderemos lo antes posible.</p>
+            <p className="my-5 text-gray-500">
+              Completa el formulario y te responderemos lo antes posible.
+            </p>
           </Card.Header>
           <Card.Body>
             <form className="space-y-4">
@@ -49,7 +52,7 @@ const Contact = () => {
                 <Textarea
                   id="message"
                   placeholder="Escribe tu mensaje aquí..."
-                  className="min-h-[150px]"
+                  className=""
                 />
               </div>
               <Button type="submit" className="w-full">
@@ -62,44 +65,44 @@ const Contact = () => {
         <div className="space-y-6">
           <Card>
             <Card.Header>
-              <span className="text-2xl font-semibold">Información de contacto</span>
-              <p className="mt-2 text-gray-500">Diferentes formas de ponerte en contacto con nosotros.</p>
+              <span className="text-2xl font-semibold">
+                Información de contacto
+              </span>
+              <p className="mt-2 text-gray-500">
+                Diferentes formas de ponerte en contacto con nosotros.
+              </p>
             </Card.Header>
-            <Card.Body className="space-y-3">
+            <Card.Body className="space-y-5">
               <div className="flex items-start space-x-4">
-                {/* <MapPin className="h-5 w-5 text-primary mt-0.5" />
-                    <div>
-                      <h3 className="font-medium">Dirección</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Calle Dulce 123
-                        <br />
-                        28001 Madrid, España
-                      </p>
-                    </div> */}
-              </div>
-              <div className="flex items-start space-x-4">
-                {/* <Phone className="h-5 w-5 text-primary mt-0.5" /> */}
+                <MapPin className="stroke-pink-500 size-7" />
                 <div>
-                  <h3 className="font-medium">Teléfono</h3>
-                  <p className="text-sm text-muted-foreground">
-                    (+58) 414-185-7541
+                  <h3 className="font-bold">Dirección</h3>
+                  <p className="text-sm text-gray-500">
+                    ?????
+                    <br />
+                    ????????????
                   </p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                {/* <Mail className="h-5 w-5 text-primary mt-0.5" /> */}
+                <Phone className="stroke-pink-500 size-7" />
                 <div>
-                  <h3 className="font-medium">Email</h3>
-                  <p className="text-sm text-muted-foreground">
-                    example@simplescake.com
-                  </p>
+                  <h3 className="font-bold">Teléfono</h3>
+                  <p className="text-sm text-gray-500">(+58) 424-916-7895</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                {/* <Clock className="h-5 w-5 text-primary mt-0.5" /> */}
+                <Mail className="stroke-pink-500 size-7" />
                 <div>
-                  <h3 className="font-medium">Horario</h3>
-                  <p className="text-sm text-muted-foreground space">
+                  <h3 className="font-bold">Email</h3>
+                  <p className="text-sm text-gray-500">simplescake@gmail.com</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <Clock className="stroke-pink-500 size-7" />
+                <div>
+                  <h3 className="font-bold">Horario de atención</h3>
+                  <p className="text-sm text-gray-500 space">
                     Lunes a Viernes: 9:00 - 20:00
                     <br />
                     Sábados: 10:00 - 14:00
@@ -116,13 +119,23 @@ const Contact = () => {
               <span className="text-2xl font-semibold">Pedidos especiales</span>
             </Card.Header>
             <Card.Body>
-              <p className="text-sm text-gray-500 text-muted-foreground mb-4">
+              <p className="text-sm text-gray-500 mb-4">
                 ¿Necesitas un postre personalizado para una ocasión especial?
                 Podemos crear dulces a medida para cumpleaños, bodas, eventos
                 corporativos y más.
               </p>
-              <Button variant="outline" className="w-full bg-transparent text-gray-400 border border-black/20 hover:bg-gray-100 active:bg-gray-300">
-                Solicitar presupuesto
+              <Button
+                variant="outline"
+                className="w-full bg-transparent font-bold text-gray-500 border-2 border-gray-500 hover:bg-gray-100 active:bg-gray-300"
+              >
+                <a
+                  href="https://wa.me/+584249167895"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex gap-x-2"
+                >
+                  Solicitar presupuesto
+                </a>
               </Button>
             </Card.Body>
           </Card>
@@ -133,10 +146,7 @@ const Contact = () => {
             </Card.Header>
             <Card.Body>
               <div className="flex justify-center space-x-4">
-                <a
-                  href="#"
-                  className="text-muted-foreground hover:text-primary"
-                >
+                <a href="#" className="text-gray-500 hover:text-primary">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -153,10 +163,7 @@ const Contact = () => {
                   </svg>
                   <span className="sr-only">Facebook</span>
                 </a>
-                <a
-                  href="#"
-                  className="text-muted-foreground hover:text-primary"
-                >
+                <a href="#" className="text-gray-500 hover:text-primary">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -175,10 +182,7 @@ const Contact = () => {
                   </svg>
                   <span className="sr-only">Instagram</span>
                 </a>
-                <a
-                  href="#"
-                  className="text-muted-foreground hover:text-primary"
-                >
+                <a href="#" className="text-gray-500 hover:text-primary">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
