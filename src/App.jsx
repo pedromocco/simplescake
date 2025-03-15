@@ -6,6 +6,7 @@ import Products from "./Pages/Products/Products";
 import Product from "./Pages/Products/Product";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
+import Gallery from "./Pages/Gallery"
 import { PageTransition } from "./lib/utils";
 import { useEffect } from "react";
 
@@ -64,6 +65,14 @@ function App() {
               element={
                 <PageTransition>
                   <Contact />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/gallery/*"
+              element={
+                <PageTransition>
+                  <Gallery />
                 </PageTransition>
               }
             />

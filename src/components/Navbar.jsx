@@ -46,6 +46,12 @@ const Navbar = () => {
             Productos
           </Link>
           <Link
+            to={"/gallery"}
+            className="px-3 py-1 rounded-lg transition-all hover:text-pink-800 hover:bg-pink-800/3"
+          >
+            Galería
+          </Link>
+          <Link
             to={"/about"}
             className="px-3 py-1 rounded-lg transition-all hover:text-pink-800 hover:bg-pink-800/3"
           >
@@ -88,6 +94,9 @@ const Navbar = () => {
             </MenuItem>
             <MenuItem to="/products" onClick={closeMenu}>
               Productos
+            </MenuItem>
+            <MenuItem to="/gallery" onClick={closeMenu}>
+              Galería
             </MenuItem>
             <MenuItem to="/about" onClick={closeMenu}>
               Sobre mi
