@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 w-full flex justify-between items-center py-2 px-8 border border-gray-300/50 ${
+      className={`fixed z-50 top-0 left-0 w-full flex justify-between items-center py-2 px-8 border border-gray-300/50 ${
         isOpen ? "bg-pink-100" : "bg-white"
       }`}
       initial={{ opacity: 0 }}

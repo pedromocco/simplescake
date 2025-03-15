@@ -1,5 +1,6 @@
 import React from "react";
 import { User } from "../lib/icons";
+import { motion } from "motion/react";
 
 const ClientsComents = () => {
   const clientsComments = [
@@ -36,9 +37,16 @@ const ClientsComents = () => {
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
         {clientsComments.map((client) => (
-          <div
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ 
+              delay: 0.2 * client.id, // Ajusta el 0.2 para controlar la velocidad del stagger
+              duration: 0.5, // Duración de la animación
+              type: "tween", // Para un efecto suave
+            }}
             key={client.id}
-            className="flex flex-col justify-around bg-gray-200 border border-black/20 rounded-2xl py-3"
+            className="flex flex-col justify-around bg-gray-200 border border-black/20 rounded-2xl py-3  hover:scale-105 hover:shadow-xl transition"
           >
             <div className="flex justify-center">
               <div className="bg-pink-300 p-3 rounded-full">
@@ -52,7 +60,7 @@ const ClientsComents = () => {
                 "{client.comment}"
               </span>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </>

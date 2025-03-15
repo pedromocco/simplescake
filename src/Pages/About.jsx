@@ -1,22 +1,44 @@
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
+import { fadeIn } from "../lib/variants";
 
 const About = () => {
   return (
     <div className="container px-4 py-12 mx-auto mt-8 lg:mt-18">
-      <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+      <motion.div
+        variants={fadeIn("down", 0.2)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: true, amount: 0.4 }}
+        className="flex flex-col items-center justify-center space-y-4 text-center mb-12"
+      >
         <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-6xl">
           Sobre Nosotros
         </h1>
         <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
           Conoce la historia detrás de nuestros dulces caseros
         </p>
-      </div>
+      </motion.div>
 
       <div className="grid justify-start md:grid-cols-2 gap-12 items-center mb-16">
         <div>
-          <h2 className="text-3xl font-bold mb-4">Nuestra Historia</h2>
-          <div className="space-y-4 text-gray-600">
+          <motion.h2
+            variants={fadeIn("right", 0.1)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: true, amount: 0.4 }}
+            className="text-3xl font-bold mb-4"
+          >
+            Nuestra Historia
+          </motion.h2>
+          <motion.div
+            variants={fadeIn("right", 0.1)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: true, amount: 0.4 }}
+            className="space-y-4 text-gray-600"
+          >
             <p>
               Soy una repostera de corazón, con las manos siempre en la masa y
               el espíritu rebosante de azúcar. Mi aventura en este mundo comenzó
@@ -35,16 +57,22 @@ const About = () => {
               que hay detrás de cada creación. ¡Ven a probar mis delicias y
               déjate conquistar por el sabor de la felicidad!
             </p>
-          </div>
+          </motion.div>
         </div>
-        <div className="">
+        <motion.div
+          variants={fadeIn("up", 0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: true, amount: 0.4 }}
+          className=""
+        >
           <img
             src="martha-1.png"
             alt="Nuestra historia"
             fill
             className="rounded-full bg-gray-100 aspect-square object-cover object-top"
           />
-        </div>
+        </motion.div>
       </div>
 
       <div className="bg-pink-100 rounded-lg p-8 text-center">

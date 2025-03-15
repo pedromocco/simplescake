@@ -4,6 +4,8 @@ import ClientsComents from "../components/ClientsComents";
 import Button from "../components/Button";
 import { Flame, Heart, Shield, Wheel } from "../lib/icons";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
+import { fadeIn } from "../lib/variants";
 
 const Home = () => {
   return (
@@ -24,7 +26,9 @@ const Home = () => {
             </div>
             <div className="space-x-4">
               <div className="flex justify-center md:mt-8">
-                <Button><Link to="/products">Ver productos</Link></Button>
+                <Button>
+                  <Link to="/products">Ver productos</Link>
+                </Button>
               </div>
             </div>
           </div>
@@ -34,7 +38,13 @@ const Home = () => {
       <section className="w-full py-12 md:py-24 lg:py-12">
         <div className=" px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
+            <motion.div
+              variants={fadeIn("down", 0.2)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
+              className="space-y-2"
+            >
               <h2 className="text-3xl font-bold tracking-tighter md:text-5xl">
                 Nuestros Dulces Favoritos
               </h2>
@@ -42,16 +52,26 @@ const Home = () => {
                 Descubre nuestros postres más populares, elaborados con recetas
                 tradicionales
               </p>
-            </div>
+            </motion.div>
           </div>
-          <FeaturedProducts />
+          <motion.div
+            variants={fadeIn("left", 0.2)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount:0.7 }}
+          >
+            <FeaturedProducts />
+          </motion.div>
         </div>
       </section>
 
       <section className="w-full py-12 md:py-24 lg:py-32 bg-pink-100">
-        <div className="px-4 md:px-6">
+        <motion.div variants={fadeIn("right", 0.1)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount:0.5 }} className="px-4 md:px-6">
           <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            <div className="bg-white py-15 border border-black/20 rounded-2xl">
+            <div className="bg-white py-15 border border-black/20 rounded-2xl hover:scale-105 hover:shadow-xl transition">
               <div className="p-6 flex flex-col items-center text-center space-y-2">
                 <div className="rounded-full bg-pink-300 p-3">
                   <Heart className="stroke-pink-700" />
@@ -63,7 +83,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div className="bg-white py-15 border border-black/20 rounded-2xl">
+            <div className="bg-white py-15 border border-black/20 rounded-2xl hover:scale-105 hover:shadow-xl transition">
               <div className="p-6 flex flex-col items-center text-center space-y-2">
                 <div className="rounded-full bg-pink-300 p-3">
                   <Wheel className="stroke-pink-700" />
@@ -74,7 +94,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div className="bg-white py-15 border border-black/20 rounded-2xl">
+            <div className="bg-white py-15 border border-black/20 rounded-2xl hover:scale-105 hover:shadow-xl transition">
               <div className="p-6 flex flex-col items-center text-center space-y-2">
                 <div className="rounded-full bg-pink-300 p-3">
                   <Flame className="stroke-pink-700" />
@@ -85,7 +105,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div className="bg-white py-15 border border-black/20 rounded-2xl">
+            <div className="bg-white py-15 border border-black/20 rounded-2xl hover:scale-105 hover:shadow-xl transition">
               <div className="p-6 flex flex-col items-center text-center space-y-2">
                 <div className="rounded-full bg-pink-300 p-3">
                   <Shield className="stroke-pink-700" />
@@ -97,7 +117,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className="w-full py-12 md:py-24 lg:py-32">
